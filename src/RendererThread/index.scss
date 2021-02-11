@@ -1,7 +1,8 @@
 @use "../../node_modules/bootstrap/scss/bootstrap.scss";
 
 #app-menu {
-  .custom-switch {
-    padding-top: 6px;
+
+  .custom-switch, .btn-secondary {
+    margin-top: 6px;
   }
 }

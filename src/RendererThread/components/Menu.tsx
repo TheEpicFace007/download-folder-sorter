@@ -49,7 +49,7 @@ export function Menu(props: MenuProps)
         </Nav.Link>
       </Nav.Item>
       <Nav.Item>
-        <Button onClick={openDownloadFolder}>Open download folder</Button>
+        <Button onClick={openDownloadFolder} variant="secondary">Open download folder</Button>
       </Nav.Item>
 
       <Nav.Item>
@@ -62,12 +62,12 @@ export function Menu(props: MenuProps)
             onClick={async (event: React.MouseEvent<HTMLInputElement>) =>
             {
               const Electron = await import("electron");
-              Electron.ipcRenderer.send(
+              (Electron.ipcRenderer.send(
                 "file-sorter",
                 "toggle-dl-folder",
                 //@ts-ignore
                 event.target.checked
-              );
+              ));
             }
             }
           />
