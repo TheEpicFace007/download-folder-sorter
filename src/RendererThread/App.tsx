@@ -1,12 +1,10 @@
-import React, { FunctionComponent, useState } from "react";
+import React, { useState } from "react";
 import _ from "lodash";
 import "./index.scss";
-import Logo from "./assets/download-icon.png";
-import { Menu, MenuProps } from "./components/Menu";
+import { Menu } from "./components/Menu";
 import { Modal, Button, Accordion } from "react-bootstrap";
-import { SettingGroup } from "./components/setting/SettingGroup"
 
-function App(props: {})
+function App()
 {
   const [isSettingOpen, setOpenSetting] = useState(false);
   const [activeKey, setActiveKey] = useState("1");
@@ -35,20 +33,18 @@ function App(props: {})
         onHide={handleSettingClose}
         size="lg"
       >
-        <Modal.Header>
+        <Modal.Header closeButton={true}>
           <Modal.Title>Settings</Modal.Title>
         </Modal.Header>
 
         <Modal.Body>
-          <Accordion>
-
-            <SettingGroup name="My setting group"></SettingGroup>
+          <Accordion>           
+            <TestSettingGroup name="Lorem ipsum" desc="Curabitur ac eros sollicitudin, convallis sapien id, rhoncus urna."/>
           </Accordion>
         </Modal.Body>
 
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleSettingClose}>Close</Button>
-          <Button variant="primary">Save setting</Button>
+          <Button variant="dark" onClick={handleSettingClose}>Close</Button>
         </Modal.Footer>
 
       </Modal>
