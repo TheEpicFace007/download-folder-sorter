@@ -7,5 +7,4 @@ export default interface SettingGroupBaseProps
   name: string;
   /** The description of the setting */
   desc?: string;
-  children: React.ReactChildren
 }
