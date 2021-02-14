@@ -2,24 +2,27 @@ import React, { useEffect } from "react";
 import { Accordion, Card, Nav, NavDropdown, Button } from "react-bootstrap";
 import SettingBaseComponentProp from "./SettingGroupBaseProps";
 import { nanoid } from "nanoid";
-import LineBreak from "jsx-linebreak";
+import faker from "faker";
+import _ from "lodash";
 
 
 export interface SettingGroupProps
 {
   name: string;
   desc?: string;
-  children: JSX.Element[];
+  children: JSX.Element[] | JSX.Element;
   onSave: () => void;
 };
 
 export function SettingGroup(props: SettingGroupProps)
 {
-  const settingGroupEventKey = nanoid(4);
+  
   let description: JSX.Element | undefined;
   if (props.desc) {
-    description = <Card.Footer id={settingGroupEventKey}>{props.desc}</Card.Footer>;
+    description = <Card.Footer id={nanoid()}>{props.desc}</Card.Footer>;
   }
+
+  const settingGroupEventKey = props.name
 
   return (
     <div className="setting-group">
@@ -30,11 +33,11 @@ export function SettingGroup(props: SettingGroupProps)
           </Accordion.Toggle>
         </Card.Header>
 
-        <Accordion.Collapse eventKey={settingGroupEventKey}>
+        <Accordion.Collapse eventKey={settingGroupEventKey} appear>
           <Card.Body>
             {props.children}
             <div className="setting-group-linebreak" />
-            <Button variant="primary" size="sm">Save settings</Button>
+            <Button variant="primary" size="sm" style={{marginTop: "15px"}} onClick={props.onSave}>Save settings</Button>
           </Card.Body>
         </Accordion.Collapse>
         {description ?? ""}

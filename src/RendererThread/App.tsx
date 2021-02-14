@@ -3,6 +3,7 @@ import _ from "lodash";
 import "./index.scss";
 import { Menu } from "./components/Menu";
 import { Modal, Button, Accordion } from "react-bootstrap";
+import TestSettingGroup from "./components/Setting/TestSettingGroup"
 
 function App()
 {
