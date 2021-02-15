@@ -5,6 +5,9 @@
     border: 1px solid #ced4da;
     margin-top: 8px;
     border-radius: 0.2rem;
+    overflow-x: hidden;
+    overflow-y: auto;
+    max-height: 126px;
   }
 
   p {
@@ -35,8 +38,6 @@
       height: 1em;
       border-radius: 50%;
       border: 0.1em solid currentColor;
-
-      background: radial-gradient(currentcolor 50%, rgba(255, 0, 0, 0) 51%);
     }
 
     input,
