@@ -4,28 +4,30 @@ import { Form, InputGroup } from "react-bootstrap";
 
 export interface SettingRadioButtonGroupProps
 {
+  groupDesc: string;
   radioButtons: { desc: string; isSelected: boolean; }[];
 };
 
 export function SettingRadioButtonGroup(props: SettingRadioButtonGroupProps)
 {
+  const radioGroupName = nanoid();
   return (
-    <div className="radio-button-group">
-      <InputGroup size="sm">
-        <InputGroup.Prepend>
-          {props.radioButtons.map((button) =>
+    <div className="radio-group">
+      <p className="radio-label">{props.groupDesc}</p>
+      <div className="group">
+        {
+          props.radioButtons.map((button) =>
           {
-            const button_id = nanoid();
-
+            const buttonLabel = nanoid();
             return (
-              <div className="setting-radio">
-                <InputGroup.Radio id={button_id} />
-                <p>{button.desc}</p>
+              <div className="radio-button">
+                <input type="radio" id={buttonLabel} name={radioGroupName} />
+                <label htmlFor={radioGroupName}>{button.desc}</label>
               </div>
             );
-          })}
-        </InputGroup.Prepend>
-      </InputGroup>
+          })
+        }
+      </div>
     </div>
   );
 }

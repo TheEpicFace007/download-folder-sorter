@@ -14,12 +14,7 @@ export interface SettingTextBoxProps extends SettingBaseComponentProps
 
 export function TextBoxSetting(props: SettingTextBoxProps)
 {
-  const [textSetted, setText] = useState<string>();
   let textEntered = "";
-  const onTextChange = (change: string) =>
-  {
-    setText(change);
-  };
   const textFormID = nanoid();
 
   const divStyle: React.CSSProperties = {

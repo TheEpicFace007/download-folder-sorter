@@ -1,5 +1,51 @@
-.radio-button-group {
-  .setting-radio {
-    display: inline-block;
+@use "../../../../../node_modules/bootstrap/scss/bootstrap.scss";
+
+.radio-group {
+  .group {
+    border: 1px solid #ced4da;
+    margin-top: 8px;
+    border-radius: 0.2rem;
+  }
+
+  p {
+    margin: 9px 0;
+  }
+
+  .radio-button {
+    $button-color: #007bff;
+    $button-button-hovered-color: #0062cc;
+    $button-outline-color: #000;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    min-height: 31px;
+    padding: 0.25rem 0.5rem;
+
+    input[type="radio"] {
+      // Apply the style
+      $size: 16px;
+      height: $size;
+      width: $size;
+      flex-basis: 5%;
+
+      width: 1em;
+      height: 1em;
+      border-radius: 50%;
+      border: 0.1em solid currentColor;
+
+      background: radial-gradient(currentcolor 50%, rgba(255, 0, 0, 0) 51%);
+    }
+
+    input,
+    label {
+      margin: 0.5px;
+    }
+    label {
+      font-size: 14px;
+      padding-left: 10px;
+    }
   }
 }
