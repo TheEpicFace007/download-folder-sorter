@@ -29,7 +29,7 @@ export function SettingRadioButtonGroup(props: SettingRadioButtonGroupProps)
 
             const buttonLabel = nanoid();
             return (
-              <div className="radio-button">
+              <div className="radio-button" key={nanoid()}>
                 <input type="radio" id={buttonLabel} name={radioGroupName} onClick={() => { () => props.onRadioSelected(button.desc) }} />
                 <label htmlFor={radioGroupName}>{button.desc}</label>
               </div>
